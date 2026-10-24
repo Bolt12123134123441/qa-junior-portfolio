@@ -6,7 +6,7 @@
 | TC-AUTH-001 | POST /auth | Valid credentials | 200, token returned | High |
 | TC-AUTH-002 | POST /auth | Invalid password | No token returned | High |
 | TC-BKG-001 | GET /booking | Get all booking IDs | 200, array of objects with bookingid | High |
-| TC-BKG-002 | GET /booking?firstname= | Filter by first name | 200, only matching bookings | Medium |
+| TC-BKG-002 | GET /booking/:id | Filter by id | 200, only matching id | Medium |
 | TC-BKG-003 | POST /booking | Create with valid data | 200, bookingid returned, data matches request | High |
 | TC-BKG-004 | POST /booking | Missing required field | Booking is not created, error returned | High |
 | TC-BKG-005 | POST /booking | Checkout date before checkin date | Booking is rejected | Medium |
