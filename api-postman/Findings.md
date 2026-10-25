@@ -61,7 +61,8 @@ Step 1: the booking with reversed dates is accepted (200 OK, bookingid 2201)
 
 Step 3: the booking is stored with the same reversed dates (the request is from TC-BKG-007)
 
-<img width="1427" height="774" alt="TC__BKG__005" src="https://github.com/user-attachments/assets/d115e183-472e-4ed0-8e22-2b9df9473df2" />
+<img width="1409" height="411" alt="TC-BKG-007" src="https://github.com/user-attachments/assets/675ed9eb-1f54-48a2-82b5-c675267a5b9e" />
+
 
 
 
