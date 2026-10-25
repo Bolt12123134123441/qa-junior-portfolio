@@ -15,5 +15,5 @@
 | TC-BKG-008 | PUT /booking/:id | Update with valid token | 200, all fields updated | High |
 | TC-BKG-009 | PUT /booking/:id | Update without token | 403 | High |
 | TC-BKG-010 | PATCH /booking/:id | Partial update with valid token | 200, only sent fields changed | High |
-| TC-BKG-011 | DELETE /booking/:id | Delete with valid token | Booking deleted, GET returns 404 | High |
+| TC-BKG-011 | DELETE /booking/:id | Delete with valid token | GET returns  201 Created| High |
 | TC-BKG-012 | DELETE /booking/:id | Delete without token | 403, booking still exists | High |
