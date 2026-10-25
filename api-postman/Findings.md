@@ -11,6 +11,7 @@
 1. Send the following request:
 
    POST https://restful-booker.herokuapp.com/booking
+
    Headers: `Content-Type: application/json`, `Accept: application/json`
 
    ```json
@@ -36,8 +37,8 @@
      -d '{"firstname":"John","lastname":"Pork","totalprice":150,"depositpaid":true,"bookingdates":{"checkin":"2026-11-10","checkout":"2026-11-05"},"additionalneeds":"Breakfast"}'
    ```
 
-2. Note the `bookingid` in the response.
-3. Send `GET https://restful-booker.herokuapp.com/booking/{bookingid}` with `Accept: application/json` (do this within a few minutes, the data resets every 10 minutes).
+3. Note the `bookingid` in the response.
+4. Send `GET https://restful-booker.herokuapp.com/booking/{bookingid}` with `Accept: application/json` (do this within a few minutes, the data resets every 10 minutes).
 
 **Expected result:** The booking is rejected with a 4xx status and an error message, because the checkout date is earlier than the checkin date.
 
