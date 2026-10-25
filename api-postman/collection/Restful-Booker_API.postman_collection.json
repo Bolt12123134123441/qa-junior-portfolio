@@ -1,0 +1,599 @@
+{
+	"info": {
+		"_postman_id": "e9c02ac6-4c7e-4fc5-b91f-6d438c9696be",
+		"name": "Restful-Booker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "54311152",
+		"_collection_link": "https://www.postman.com/testing-bblt26-2613495/workspace/restful-booker-api/collection/54311152-e9c02ac6-4c7e-4fc5-b91f-6d438c9696be?action=share&source=collection_link&creator=54311152"
+	},
+	"item": [
+		{
+			"name": "TC-PING-001",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-AUTH-001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));",
+							"",
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-AUTH-002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"jhonpork132\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-001",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/booking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-002",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"1"
+					],
+					"query": [
+						{
+							"key": "firstname/1",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-003",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Tester\",\n     \"totalprice\": 150,\n     \"depositpaid\": true,\n     \"bookingdates\": {\n       \"checkin\": \"2026-11-01\",\n       \"checkout\": \"2026-11-05\"\n     },\n     \"additionalneeds\": \"Breakfast\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-004",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"firstname\": \"John\",\n     \"totalprice\": 150,\n     \"depositpaid\": true,\n     \"bookingdates\": {\n       \"checkin\": \"2026-11-01\",\n       \"checkout\": \"2026-11-05\"\n     },\n     \"additionalneeds\": \"Breakfast\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-005",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Pork\",\n     \"totalprice\": 150,\n     \"depositpaid\": true,\n     \"bookingdates\": {\n       \"checkin\": \"2026-11-10\",\n       \"checkout\": \"2026-11-05\"\n     },\n     \"additionalneeds\": \"Breakfast\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-006",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Tester\",\n     \"totalprice\": \"150\",\n     \"depositpaid\": true,\n     \"bookingdates\": {\n       \"checkin\": \"2026-11-01\",\n       \"checkout\": \"2026-11-05\"\n     },\n     \"additionalneeds\": \"Breakfast\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-007",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/5675575",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"5675575"
+					],
+					"query": [
+						{
+							"key": "firstname/1",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-008",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 200,\n    \"depositpaid\": false,\n    \"bookingdates\": {\n      \"checkin\": \"2026-12-01\",\n      \"checkout\": \"2026-12-07\"\n    },\n    \"additionalneeds\": \"Lunch\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/3301",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"3301"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-009",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 200,\n    \"depositpaid\": false,\n    \"bookingdates\": {\n      \"checkin\": \"2026-12-01\",\n      \"checkout\": \"2026-12-07\"\n    },\n    \"additionalneeds\": \"Lunch\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/1483",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"1483"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-010",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=  {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"firstname\": \"John\",\n\"lastname\": \"Pork\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/1483",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"1483"
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-011",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{token}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 200,\n    \"depositpaid\": false,\n    \"bookingdates\": {\n      \"checkin\": \"2026-12-01\",\n      \"checkout\": \"2026-12-07\"\n    },\n    \"additionalneeds\": \"Lunch\"\n  }"
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/4986",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"4986"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-BKG-012",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"firstname\": \"James\",\n    \"lastname\": \"Brown\",\n    \"totalprice\": 200,\n    \"depositpaid\": false,\n    \"bookingdates\": {\n      \"checkin\": \"2026-12-01\",\n      \"checkout\": \"2026-12-07\"\n    },\n    \"additionalneeds\": \"Lunch\"\n  }"
+				},
+				"url": {
+					"raw": "{{base_url}}/booking/1650",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"booking",
+						"1650"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://template.postman-echo.com"
+		},
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "username",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		}
+	]
+}
