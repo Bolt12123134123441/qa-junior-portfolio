@@ -51,11 +51,16 @@
 
 **Type:** Observation (documentation does not describe date validation)
 
-**Evidence:** Step 1: the booking with reversed dates is accepted (200 OK, bookingid 2201)
+**Evidence:** 
+
+Step 1: the booking with reversed dates is accepted (200 OK, bookingid 2201)
 
 <img width="1433" height="432" alt="TC_BKG_005" src="https://github.com/user-attachments/assets/8e43f4e4-4a18-4aa9-b359-33b9cd157181" />
 
+
+
 Step 3: the booking is stored with the same reversed dates (the request is from TC-BKG-007)
+
 <img width="1427" height="774" alt="TC__BKG__005" src="https://github.com/user-attachments/assets/d115e183-472e-4ed0-8e22-2b9df9473df2" />
 
 
