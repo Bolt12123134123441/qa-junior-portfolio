@@ -48,7 +48,9 @@
 **Reproducibility:** 3 out of 3 attempts
 
 **Severity:** Medium
+
 **Type:** Observation (documentation does not describe date validation)
+
 **Evidence:** screenshots/TC-BKG-005-post-response.png, screenshots/TC-BKG-005-get-response.png
 
 **Notes:** A user interface may prevent this input, but the API should validate data independently, because other clients (mobile apps, scripts) can call it directly.
