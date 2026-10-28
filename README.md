@@ -10,3 +10,8 @@ Looking for QA positions in Poland.
 
 ## Skills
 Manual testing · Test case design · API testing (Postman) · Bug reporting
+
+
+## Contact
+
+- Email: testing.bblt26@gmail.com
