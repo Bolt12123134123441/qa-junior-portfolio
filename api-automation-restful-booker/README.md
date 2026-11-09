@@ -5,7 +5,7 @@ deletion verification, plus authorization checks (403 without a token) and
 a non-existent ID check (404).
 
 - Collection: [autpost.postman_collection.json](autpost.postman_collection.json)
-- Result: 13 requests, <N> assertions, <N> failed
+- Result: 16 requests, <N> 43 assertions, <N> 0 failed
 - Newman report: [my-report.html](my-report.html)
 
 
