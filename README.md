@@ -7,7 +7,7 @@ Looking for QA positions in Poland.
 | Project | Description |
 |---------|-------------|
 | [API testing: Restful-Booker](api-postman/) | Test cases, manual execution in Postman, documented findings |
-| [API automation testing: Restful-Booker](api-automation-restful-booker/) | Test cases, manual execution in Postman, documented findings |
+| [API automation testing: Restful-Booker](api-automation-restful-booker/) | API test automation via Newman & Postman, regression scenarios, HTML reports|
 
 ## Skills
 Manual testing · Test case design · API testing (Postman) · Bug reporting
